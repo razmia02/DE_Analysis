@@ -46,7 +46,7 @@ The goal of this project is to identify differentially expressed genes in papill
 ## Results
 
 A total of 2752 genes were known to be DE. Among these, 1466 genes were upregulated and 903 genes were downregulated. Many of these DE genes are known to be involved in pathogenesis of PTC and act as biomarkers of the disease. Some of these known PTC-associated genes include S100A6, COL1A1, DHRS3, COL3A1, ZAP70, TIMP1, and SERPINA1. These genes contribute towards PTC and are known to be diagnostic and therapeutic biomarkers of the disease.
-![Volcano_Plot]Results/VolcanoPlot.png)
+![Volcano_Plot](Results/VolcanoPlot.png)
 
 ## References
 
