@@ -1,6 +1,12 @@
 # Differential Expression Analysis Using DESEQ2
 
-The goal of this project is to identify differentially expressed genes in papillary thyroid carcinoma (PTC). For this purpose RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 carcinoma tissue and 3 paired normal tissue.
+This analysis was performed to identify differentially expressed genes in papillary thyroid carcinoma (PTC). For this purpose RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 carcinoma tissue and 3 paired normal tissue.
+
+## Objective
+
+1. Identify and characterize differentially expressed genes between PTC and paired normal tissue.
+2. Identify transcriptomic alterations associated with PTC pathogenesis.
+3. Identify potential diagnostic and therapeutic biomarkers in PTC. 
 
 ## Analysis Workflow
 
