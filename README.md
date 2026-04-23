@@ -5,7 +5,7 @@ This analysis was performed to identify differentially expressed genes in papill
 ## Objective
 
 1. Identify and characterize differentially expressed genes between PTC and paired normal tissue.
-2. Identify transcriptomic alterations associated with PTC pathogenesis.
+2. Identify gene expression alterations associated with PTC pathogenesis.
 3. Identify potential diagnostic and therapeutic biomarkers in PTC. 
 
 ## Analysis Workflow
@@ -29,22 +29,17 @@ This analysis was performed to identify differentially expressed genes in papill
 -   Tool: HISAT2
 -   The pre-processed reads were aligned with reference genome (hg38) using default parameters and BAM files were obtained.
 
-5.  **Post-alignment Processing**
-
--   Tool: Markduplicates & Rmdup
--   The PCR duplicates were first marked and removed from BAM files.
-
-6.  **Transcript Quantification**
+5.  **Transcript Quantification**
 
 -   Tool: featurecounts
 -   The aligned reads were assembled into transcripts and quantified. The final counts matrix was used to perform DE analysis.
 
-7.  **DE Analysis**
+6.  **DE Analysis**
 
 -   Tool: DESEQ2
 -   Counts matrix was imported into RStudio, DESeqDataSet object was created, low count genes were removed and final DE analysis was done. The DE genes (padj \< 0.05 and \|log2FC\| ≥ 1) lists were obtained and upregulated and downregulated genes were identified.
 
-8.  **Visualization**
+7.  **Visualization**
 
 -   Tools: MA Plot, Volcano Plot.
 -   MA and enhanced volcano plots were used to view DE genes.
