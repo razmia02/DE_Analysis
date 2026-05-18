@@ -6,7 +6,8 @@ This analysis was performed to identify differentially expressed genes in papill
 
 1. Identify and characterize differentially expressed genes between PTC and paired normal tissue.
 2. Identify gene expression alterations associated with PTC pathogenesis.
-3. Identify potential diagnostic and therapeutic biomarkers in PTC. 
+3. Identify potential diagnostic and therapeutic biomarkers in PTC.
+4. Identify enriched pathways to determine the functional role of DEGs. 
 
 ## Analysis Workflow
 
@@ -39,7 +40,12 @@ This analysis was performed to identify differentially expressed genes in papill
 -   Tool: DESEQ2
 -   Counts matrix was imported into RStudio, DESeqDataSet object was created, low count genes were removed and final DE analysis was done. The DE genes (padj \< 0.05 and \|log2FC\| ≥ 1) lists were obtained and upregulated and downregulated genes were identified.
 
-7.  **Visualization**
+7. **Pathway Enrichment Analysis**
+
+-   Tool: clusterProfiler
+-   Performed Over-Representation Analysis (ORA) targeting Gene Ontology (GO) Biological Processes to determine the functional roles of the isolated DEGs.
+
+8.  **Visualization**
 
 -   Tools: MA Plot, Volcano Plot.
 -   MA and enhanced volcano plots were used to view DE genes.
@@ -47,7 +53,7 @@ This analysis was performed to identify differentially expressed genes in papill
 ## Results
 
 A total of 2752 genes were known to be DE. Among these, 1466 genes were upregulated and 903 genes were downregulated. Many of these DE genes are known to be involved in pathogenesis of PTC and act as biomarkers of the disease. Some of these known PTC-associated genes include S100A6, COL1A1, DHRS3, COL3A1, ZAP70, TIMP1, and SERPINA1. These genes contribute towards PTC and are known to be diagnostic and therapeutic biomarkers of the disease.
-![Volcano_Plot](Results/VolcanoPlot.png) 
+![Volcano_Plot](Results/VolcanoPlot.png) Enrichment plot shows that extracellular matrix organization & leukocyte migration are the most enriched pathways. ![Dot_Plot](Results/Enrichment_Plot.png)
 
 ## Repository Structure
 ```
