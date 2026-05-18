@@ -185,6 +185,49 @@ nrow(down)
 
 write.csv(as.data.frame(res_sig), file = "Results/DE_genes.csv")
 write.csv(as.data.frame(up), file = "Results/Upregulated_genes.csv")
+
+#-------------------------------------------------------------------------------
+
+##################### STEP-8: GENE ONTOLOGY ANALYSIS ############################
+
+#-------------------------------------------------------------------------------
+
+########## GO enrichment for biological processes ###########
+
+
+go_bp <- enrichGO(
+  gene = rownames(res_sig),
+  OrgDb = org.Hs.eg.db,
+  keyType = "ENSEMBL",
+  ont = "BP", ######## Biological process
+  pAdjustMethod = "BH",
+  pvalueCutoff = 0.05,
+  qvalueCutoff = 0.2,
+  readable = TRUE
+)
+
+dotplot(go_bp, showCategory = 20)
+barplot(go_bp, showCategory = 20)
+cnetplot(go_bp, categorySize = "pvalue", showCategory = 5)
+
+
+################# Enrichment analysis for ALL ontologies #####################
+
+
+go_all <- enrichGO(
+  gene = rownames(res_sig),
+  OrgDb = org.Hs.eg.db,
+  keyType = "ENSEMBL",
+  ont = "ALL", 
+  pAdjustMethod = "BH",
+  pvalueCutoff = 0.05,
+  qvalueCutoff = 0.2,
+  readable = TRUE
+)
+
+dotplot(go_all, showCategory = 20)
+
+
 write.csv(as.data.frame(down), file = "Results/Downregulated_genes.csv")
 
 
