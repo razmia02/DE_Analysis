@@ -47,8 +47,9 @@ This analysis was performed to identify differentially expressed genes in papill
 
 8.  **Visualization**
 
--   Tools: MA Plot, Volcano Plot.
+-   Tools: MA Plot, Volcano Plot, Dot Plot.
 -   MA and enhanced volcano plots were used to view DE genes.
+-   Dot plot was used to visualize enriched biological pathways
 
 ## Results
 
