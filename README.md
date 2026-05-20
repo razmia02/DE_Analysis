@@ -39,7 +39,7 @@ The original study characterised BGN as a driver of PTC progression but did not 
 
 -   Tool: HISAT2
 -   The pre-processed reads were aligned with reference genome (hg38) using default parameters and BAM files were obtained.
--   **Why HISAT2 inseatd of STAR:** HISAT2 is a splice aware aligner, meaning it can correctly map the reads at exon-intron boundries. This ensures accurate mapping of transcript-derived reads against the reference genome. HISAT2 is less computationally heavy than STAR. 
+-   **Why HISAT2 instead of STAR:** HISAT2 is a splice aware aligner, meaning it can correctly map the reads at exon-intron boundries. This ensures accurate mapping of transcript-derived reads against the reference genome. HISAT2 is less computationally heavy than STAR. 
 
 5.  **Transcript Quantification**
 
