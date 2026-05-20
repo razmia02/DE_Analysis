@@ -1,6 +1,7 @@
 # Differential Expression Analysis Using DESEQ2
 
-This analysis was performed to identify differentially expressed genes in papillary thyroid carcinoma (PTC). For this purpose RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 carcinoma tissue and 3 paired normal tissue.
+This analysis was performed to identify differentially expressed genes in papillary thyroid carcinoma (PTC). The original study explores the role of Biglycan (BGN) in progression of PTC. The study highlights overexpression of BGN is associated with poor clinicopathological features of PTC.
+This analysis explores the differential gene expression profiles & biological pathways disrupted in PTC pathogenesis. For this purpose RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 carcinoma tissue and 3 paired normal tissue.
 
 ## Objective
 
@@ -71,7 +72,7 @@ DE_Analysis/
 ```
 
 ## References
-
--   [Identification of Differentially Expressed Genes in Papillary Thyroid Cancers](https://pmc.ncbi.nlm.nih.gov/articles/PMC2649849/)
--   [Identification of Biomarkers Based on Differentially Expressed Genes in Papillary Thyroid Carcinoma](https://www.nature.com/articles/s41598-018-28299-9)
--   [Network Analyses of Integrated Differentially Expressed Genes in Papillary Thyroid Carcinoma to Identify Characteristic Genes](https://www.mdpi.com/2073-4425/10/1/45)
+-  [Enhancer-mediated NR2F2 recruitment activates BGN to promote tumor growth and shape tumor microenvironment in papillary thyroid cancer](https://pmc.ncbi.nlm.nih.gov/articles/PMC12665125/)
+-  [Identification of Differentially Expressed Genes in Papillary Thyroid Cancers](https://pmc.ncbi.nlm.nih.gov/articles/PMC2649849/)
+-  [Identification of Biomarkers Based on Differentially Expressed Genes in Papillary Thyroid Carcinoma](https://www.nature.com/articles/s41598-018-28299-9)
+-  [Network Analyses of Integrated Differentially Expressed Genes in Papillary Thyroid Carcinoma to Identify Characteristic Genes](https://www.mdpi.com/2073-4425/10/1/45)
