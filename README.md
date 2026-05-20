@@ -1,14 +1,23 @@
 # Differential Expression Analysis Using DESEQ2
 
-This analysis was performed to identify differentially expressed genes in papillary thyroid carcinoma (PTC). The original study explores the role of Biglycan (BGN) in progression of PTC. The study highlights overexpression of BGN is associated with poor clinicopathological features of PTC.
-This analysis explores the differential gene expression profiles & biological pathways disrupted in PTC pathogenesis. For this purpose RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 carcinoma tissue and 3 paired normal tissue.
+## Background & Motivation
+
+Papillary thyroid carcinoma (PTC) is the most common type of thyroid cancer. This analysis was performed to identify differentially expressed genes in papillary thyroid carcinoma (PTC). The original study explores the role of Biglycan (BGN) in progression of PTC. The study highlights overexpression of BGN is associated with poor clinicopathological features of PTC. However, the transcriptomic landscape of PTC extends far beyond a single gene. This analysis explores the differential gene expression profiles & biological pathways disrupted in PTC pathogenesis that the original study didn't explore. 
+
+## Dataset
+
+For DEG analysis, RNA-Seq data (raw FASTQ reads) was downloaded from NCBI GEO with accession [GSE224356](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224356). The dataset consisted of 6 samples; 3 PTC tissue and 3 matched paired normal tissue.
 
 ## Objective
 
 1. Identify and characterize differentially expressed genes between PTC and paired normal tissue.
-2. Identify gene expression alterations associated with PTC pathogenesis.
-3. Identify potential diagnostic and therapeutic biomarkers in PTC.
-4. Identify enriched pathways to determine the functional role of DEGs. 
+2. Identify gene expression alterations associated with PTC pathogenesis beyond original study's BGN-centric focus.
+3. Identify potential diagnostic and therapeutic biomarkers in the selected dataset.
+4. Identify enriched biological pathways to determine the functional consequences of DEGs.
+
+**Why DEG analysis instead of BGN-focused analysis?**
+
+The original study characterised BGN as a driver of PTC progression but did not perform genome-wide pathway analysis. BGN alone cannot account for the complexity of PTC pathogenesis. This re-analysis asks: what is the full transcriptomic disruption in this dataset, and are there additional biomarker candidates beyond what the original study reported?
 
 ## Analysis Workflow
 
@@ -30,6 +39,7 @@ This analysis explores the differential gene expression profiles & biological pa
 
 -   Tool: HISAT2
 -   The pre-processed reads were aligned with reference genome (hg38) using default parameters and BAM files were obtained.
+-   **Why HISAT2 inseatd of STAR:** HISAT2 is a splice aware aligner, meaning it can correctly map the reads at exon-intron boundries. This ensures accurate mapping of transcript-derived reads against the reference genome. HISAT2 is less computationally heavy than STAR. 
 
 5.  **Transcript Quantification**
 
@@ -40,6 +50,7 @@ This analysis explores the differential gene expression profiles & biological pa
 
 -   Tool: DESEQ2
 -   Counts matrix was imported into RStudio, DESeqDataSet object was created, low count genes were removed and final DE analysis was done. The DE genes (padj \< 0.05 and \|log2FC\| ≥ 1) lists were obtained and upregulated and downregulated genes were identified.
+-   **Why DESEQ2:** With only 3 samples per group, DESeq2 is ideal because it uses a statistical method called empirical Bayes shrinkage to accurately estimate variation in small datasets. While other tools like edgeR or limma-voom need more samples to give reliable results, DESeq2 shares data across thousands of genes to keep variance estimation stable even with minimal replicates.
 
 7. **Pathway Enrichment Analysis**
 
@@ -52,10 +63,12 @@ This analysis explores the differential gene expression profiles & biological pa
 -   MA and enhanced volcano plots were used to view DE genes.
 -   Dot plot was used to visualize enriched biological pathways
 
+
 ## Results
 
 A total of 2752 genes were known to be DE. Among these, 1466 genes were upregulated and 903 genes were downregulated. Many of these DE genes are known to be involved in pathogenesis of PTC and act as biomarkers of the disease. Some of these known PTC-associated genes include S100A6, COL1A1, DHRS3, COL3A1, ZAP70, TIMP1, and SERPINA1. These genes contribute towards PTC and are known to be diagnostic and therapeutic biomarkers of the disease.
-![Volcano_Plot](Results/VolcanoPlot.png) Enrichment plot shows that extracellular matrix organization & leukocyte migration are the most enriched pathways. ![Dot_Plot](Results/Enrichment_Plot.png)
+![Volcano_Plot](Results/VolcanoPlot.png) 
+Enrichment plot shows that extracellular matrix organization & leukocyte migration are the most enriched pathways. ECM disruption is a hallmark of tumour metastasis. Degradation and remodelling of the extracellular matrix enables tumour cells to breach tissue boundaries and invade surrounding structures. Its dominance here is consistent with PTC's known propensity for lymph node invasion and local spread. The concurrent enrichment of leukocyte migration pathways suggests active remodelling of the tumour immune microenvironment, which may reflect either immune cell recruitment or, conversely, mechanisms of immune evasion.![Dot_Plot](Results/Enrichment_Plot.png)
 
 ## Repository Structure
 ```
