@@ -70,6 +70,39 @@ A total of 2752 genes were known to be DE. Among these, 1466 genes were upregula
 ![Volcano_Plot](Results/VolcanoPlot.png) 
 Enrichment plot shows that extracellular matrix organization & leukocyte migration are the most enriched pathways. ECM disruption is a hallmark of tumour metastasis. Degradation and remodelling of the extracellular matrix enables tumour cells to breach tissue boundaries and invade surrounding structures. Its dominance here is consistent with PTC's known propensity for lymph node invasion and local spread. The concurrent enrichment of leukocyte migration pathways suggests active remodelling of the tumour immune microenvironment, which may reflect either immune cell recruitment or, conversely, mechanisms of immune evasion.![Dot_Plot](Results/Enrichment_Plot.png)
 
+## Getting Started 
+
+To run this pipeline locally, open your terminal, clone the repository, and navigate into the project directory:
+
+```bash
+git clone https://github.com/razmia02/Differential_Expression_Analysis_PTC.git)
+cd Differential_Expression_Analysis_PTC
+```
+
+### Environment Setup
+
+This project uses renv to manage R package dependencies. You do not need to install packages manually.
+
+1. Open the project in RStudio (open `DE_analysis_PTC_GSE224356.Rproj` if available, or set your working directory to this folder).
+
+2. Run the following command in your R console to automatically install all packages specified in the renv.lock file:
+
+```
+renv::restore()
+```
+
+### Run the Analysis
+
+Once your environment is restored, ensure your count data is placed in the `counts/`directory, then run the differential expression analysis:
+
+```
+# Run the script via terminal
+
+Rscript DESEQ2_analysis.R
+```
+
+All outputs, including significantly differentially expressed genes and the final volcano plot, will be saved automatically into the `Results/` directory.
+
 ## Repository Structure
 ```
 DE_Analysis/
