@@ -27,39 +27,39 @@ The original study characterised BGN as a driver of PTC progression but did not 
 
 2.  **Quality Check**
 
--   Tool: fastqc
+-   Tool: `fastqc`
 -   Quality of raw reads was checked.
 
 3.  **Quality Control**
 
--   Tool: fastp
+-   Tool: `fastp`
 -   All-in-one pre-processing was performed, including adapter trimming and removal of low quality bases.
 
 4.  **Alignment**
 
--   Tool: HISAT2
+-   Tool: `HISAT2`
 -   The pre-processed reads were aligned with reference genome (hg38) using default parameters and BAM files were obtained.
--   **Why HISAT2 instead of STAR:** HISAT2 is a splice aware aligner, meaning it can correctly map the reads at exon-intron boundries. This ensures accurate mapping of transcript-derived reads against the reference genome. HISAT2 is less computationally heavy than STAR. 
+-   **Why `HISAT2` instead of STAR:** `HISAT2` is a splice aware aligner, meaning it can correctly map the reads at exon-intron boundries. This ensures accurate mapping of transcript-derived reads against the reference genome. `HISAT2` is less computationally heavy than STAR. 
 
 5.  **Transcript Quantification**
 
--   Tool: featurecounts
+-   Tool: `featurecounts`
 -   The aligned reads were assembled into transcripts and quantified. The final counts matrix was used to perform DE analysis.
 
 6.  **DE Analysis**
 
--   Tool: DESEQ2
--   Counts matrix was imported into RStudio, DESeqDataSet object was created, low count genes were removed and final DE analysis was done. The DE genes (padj \< 0.05 and \|log2FC\| ≥ 1) lists were obtained and upregulated and downregulated genes were identified.
--   **Why DESEQ2:** With only 3 samples per group, DESeq2 is ideal because it uses a statistical method called empirical Bayes shrinkage to accurately estimate variation in small datasets. While other tools like edgeR or limma-voom need more samples to give reliable results, DESeq2 shares data across thousands of genes to keep variance estimation stable even with minimal replicates.
+-   Tool: `DESEQ2`
+-   Counts matrix was imported into RStudio, `DESeqDataSet` object was created, low count genes were removed and final DE analysis was done. The DE genes (padj \< 0.05 and \|log2FC\| ≥ 1) lists were obtained and upregulated and downregulated genes were identified.
+-   **Why `DESEQ2`:** With only 3 samples per group, `DESeq2` is ideal because it uses a statistical method called empirical Bayes shrinkage to accurately estimate variation in small datasets. While other tools like `edgeR` or `limma-voom` need more samples to give reliable results, `DESeq2` shares data across thousands of genes to keep variance estimation stable even with minimal replicates.
 
 7. **Pathway Enrichment Analysis**
 
--   Tool: clusterProfiler
+-   Tool: `clusterProfiler`
 -   Performed Over-Representation Analysis (ORA) targeting Gene Ontology (GO) Biological Processes to determine the functional roles of the isolated DEGs.
 
 8.  **Visualization**
 
--   Tools: MA Plot, Volcano Plot, Dot Plot.
+-   Tools: `MA Plot`, `Volcano Plot`, `Dot Plot`.
 -   MA and enhanced volcano plots were used to view DE genes.
 -   Dot plot was used to visualize enriched biological pathways
 
@@ -68,6 +68,7 @@ The original study characterised BGN as a driver of PTC progression but did not 
 
 A total of 2752 genes were known to be DE. Among these, 1466 genes were upregulated and 903 genes were downregulated. Many of these DE genes are known to be involved in pathogenesis of PTC and act as biomarkers of the disease. Some of these known PTC-associated genes include S100A6, COL1A1, DHRS3, COL3A1, ZAP70, TIMP1, and SERPINA1. These genes contribute towards PTC and are known to be diagnostic and therapeutic biomarkers of the disease.
 ![Volcano_Plot](Results/VolcanoPlot.png) 
+
 Enrichment plot shows that extracellular matrix organization & leukocyte migration are the most enriched pathways. ECM disruption is a hallmark of tumour metastasis. Degradation and remodelling of the extracellular matrix enables tumour cells to breach tissue boundaries and invade surrounding structures. Its dominance here is consistent with PTC's known propensity for lymph node invasion and local spread. The concurrent enrichment of leukocyte migration pathways suggests active remodelling of the tumour immune microenvironment, which may reflect either immune cell recruitment or, conversely, mechanisms of immune evasion.![Dot_Plot](Results/Enrichment_Plot.png)
 
 ## Getting Started 
